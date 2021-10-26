@@ -24,7 +24,7 @@ INNER JOIN Course as c ON co.coachID = c.coachID
 WHERE duration = "3.5 Hours"
 GROUP BY co.location
 HAVING avg(ratings) > 4.8
-ORDER BY avg(co.ratings) DESC
+ORDER BY avg(co.ratings) DESC;
 
 /*Find specific first name, last name, email and address of a male or a female student 
 whose first name starts with D and last name begins with C or R*/
@@ -34,7 +34,7 @@ WHERE email like "%@c%"
 AND firstName like "D%"
 AND (lastName like "C%" OR lastName like "R%")
 AND (gender = "Male" OR gender = "Female")
-ORDER BY studentID
+ORDER BY studentID;
 
 /*Find all coaches' first name and last name and ordered by ratings. 
 Besides, the coaches in california should be demonstrated*/
@@ -49,7 +49,7 @@ SELECT
        END CoachInCA
 FROM 
     Coach
-ORDER BY ratings DESC
+ORDER BY ratings DESC;
 
 /*Find all coaches names, showing the ratings of the coaches 
 and use a boolean to show whether the coach is in NY. 
