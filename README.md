@@ -1,7 +1,7 @@
 # CS5200 Project1
 
 # DrivingSchoolSchedulingSystem
-An Application Using Node + Expres + SQlite + EJS implementing a Driving School Scheduling System for both students and managers.
+An Application Using Node + Express + SQlite + EJS implementing a Driving School Scheduling System for both students and managers.
 
 1. Requirements
 
