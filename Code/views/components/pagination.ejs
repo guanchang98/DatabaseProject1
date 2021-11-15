@@ -36,6 +36,8 @@
     </ul>
   </nav>
 <% } else { %>
-  <div>No pagination <%= lastPage %> </div>
+<!-- Ely - I would just put "1" page rather than no pagination. -->
+  <div>1 / <%= lastPage %> </div>
+  <!-- <div>No pagination <%= lastPage %> </div> -->
 <% } %>
 
