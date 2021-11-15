@@ -236,3 +236,6 @@ router.get("/courses/:courseID/schedule", async (req, res, next) => {
 // });
 
 module.exports = router;
+
+/* Ely - I liked that you pass a success/error message in the url
+*/
