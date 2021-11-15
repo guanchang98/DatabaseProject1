@@ -7,7 +7,8 @@ be manipulated and I'm assuming you want to keep it incremental -->
   <div>
     <label class="form-label">
       Course ID:
-      <input class="form-control" type="text" name="courseID" />
+      <input class="form-control" type="hidden" name="courseID" />
+      <!-- <input class="form-control" type="text" name="courseID" /> -->
     </label>
   </div>
   
@@ -25,13 +26,18 @@ be manipulated and I'm assuming you want to keep it incremental -->
     </label>
   </div>
 
+<!-- Ely - I would use input type="time". -->
   <div>
     <label class="form-label">
       Start time:
-      <input class="form-control" type="text" name="startTime" />
+      <input class="form-control" type="time" name="startTime" />
+      <!-- <input class="form-control" type="text" name="startTime" /> -->
     </label>
   </div>
 
+<!-- Ely - I would make this a number instead, and put the units in the label,
+which would mean editing the database so that duration is stored as an INTEGER. 
+I just think it will be easier for the user to input and less confusing in the database. -->
   <div>
     <label class="form-label">
       Duration:
@@ -53,7 +59,8 @@ permissions for coaches and students though. -->
   <div>
     <label class="form-label">
       Coach ID:
-      <input class="form-control" type="text" name="coachID" />
+      <input class="form-control" type="hidden" name="coachID" />
+      <!-- <input class="form-control" type="text" name="coachID" /> -->
     </label>
   </div>
 
