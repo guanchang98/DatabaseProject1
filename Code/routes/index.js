@@ -135,12 +135,16 @@ router.post("/createCourse", async (req, res, next) => {
   }
 });
 
+/* Ely -  Right now, after a student tries to create an account, it does not redirect anywhere and thus
+the app crashes and I have to restart.
+*/
 router.post("/createStudent", async (req, res, next) => {
   const student = req.body;
 
   try {
     console.log(student);
     const insertRes = await myDb.insertStudent(student);
+    res.redirect("/courses/?msg=studentCreated");
     console.log("Inserted", insertRes);
   } catch (err) {
     console.log("Error inserting", err);
