@@ -1,3 +1,5 @@
+/* Ely - I would use INTEGER for studentID and courseID, that way you can 
+also consider using auto-increment. */
 CREATE TABLE "Appointments" (
 	"studentID"	TEXT NOT NULL,
 	"courseID"	TEXT NOT NULL,
@@ -6,6 +8,8 @@ CREATE TABLE "Appointments" (
 	PRIMARY KEY("studentID","courseID")
 );
 
+/* Ely - I would use INTEGER for coachID, that way you can 
+auto-increment.*/
 CREATE TABLE "Coach" (
 	"coachID"	TEXT NOT NULL,
 	"firstName"	TEXT NOT NULL,
