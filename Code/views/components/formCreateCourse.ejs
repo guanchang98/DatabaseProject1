@@ -2,6 +2,8 @@
 <h2>Create a Course</h2>
 <form action="/createCourse" method="POST">
 
+<!-- Ely - I think you meant to make this hidden, so that the courseID cannot 
+be manipulated and I'm assuming you want to keep it incremental -->
   <div>
     <label class="form-label">
       Course ID:
@@ -44,6 +46,10 @@
     </label>
   </div>
 
+<!-- Ely - I would also make coachID hidden, and make it so a coach
+can log in so that when they create a new course, it can automatically
+use the coachID of the coach logged in. It would require adding different
+permissions for coaches and students though. -->
   <div>
     <label class="form-label">
       Coach ID:
