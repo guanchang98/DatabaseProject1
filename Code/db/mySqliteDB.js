@@ -22,8 +22,12 @@ async function getCourses(query, page, pageSize) {
     OFFSET @offset;
     `);
 
+  /* Ely - I would make the search more user-friendly by allowing them to 
+  search for courses that match any part of the query.
+  */
   const params = {
-    "@query": query + "%",
+    "@query": "%" + query + "%",
+//     "@query": query + "%",
     "@pageSize": pageSize,
     "@offset": (page - 1) * pageSize,
   };
