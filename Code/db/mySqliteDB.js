@@ -1,6 +1,10 @@
 const sqlite3 = require("sqlite3");
 const { open } = require("sqlite");
 
+/* Ely - I like that you guys incorporated pagination; we were planning to add pagination
+to our app but ran out of time. I like the way you set up the pagination by limiting
+by the pageSize and offsetting by the page.
+*/
 async function getCourses(query, page, pageSize) {
   console.log("getCourses", query);
 
@@ -8,6 +12,7 @@ async function getCourses(query, page, pageSize) {
     filename: "./db/database.db",
     driver: sqlite3.Database,
   });
+
 
   const stmt = await db.prepare(`
     SELECT * FROM Course
@@ -17,8 +22,12 @@ async function getCourses(query, page, pageSize) {
     OFFSET @offset;
     `);
 
+  /* Ely - I would make the search more user-friendly by allowing them to 
+  search for courses that match any part of the query.
+  */
   const params = {
-    "@query": query + "%",
+    "@query": "%" + query + "%",
+//     "@query": query + "%",
     "@pageSize": pageSize,
     "@offset": (page - 1) * pageSize,
   };
@@ -31,6 +40,9 @@ async function getCourses(query, page, pageSize) {
   }
 }
 
+/* Ely - I think incorporating a course count is clever and an efficient way to
+set up the pages.
+*/
 async function getCoursesCount(query) {
   console.log("getCourses", query);
 
@@ -153,7 +165,7 @@ async function insertCourse(course) {
     return await stmt.run({
       "@courseID": course.courseID,
       "@courseName": course.courseName,
-      "@carType":course.carType,
+      "@carType": course.carType,
       "@startTime": course.startTime,
       "@duration": course.duration,
       "@capacity": course.capacity,
@@ -272,6 +284,12 @@ async function addStudentIDToCourseID(courseID, studentID) {
   }
 }
 
+/* Ely - I didn't realize you could pass the params when running 
+the statement rather than binding them beforehand. Cool discovery!
+*/
+/* Ely - I think you can reformat some of the statements spacing so overall they are
+more consistent and also so it is easier to read.
+*/
 
 
 module.exports.getCourses = getCourses;

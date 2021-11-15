@@ -55,6 +55,9 @@ ORDER BY ratings DESC;
 and use a boolean to show whether the coach is in NY. 
 Besides, the coach should have equals or more than 2 students
 and their ratings is more than 4.8*/
+/* Ely - It seems you forgot to include that the classes
+are only the ones that the students have registered in 2016.
+*/
 SELECT co.firstName, co.lastName, co.ratings,
 CASE location
            WHEN "NY" 
@@ -70,4 +73,6 @@ GROUP BY co.coachID
 HAVING count(s.studentID) >= 2;
 
 
-
+/* Ely - It's easy to see how a student would apply these statements in reality when searching
+for a course. Great work with optimizing your statements.
+*/

@@ -1,3 +1,5 @@
+/* Ely - I would use INTEGER for studentID and courseID, that way you can 
+also consider using auto-increment. */
 CREATE TABLE "Appointments" (
 	"studentID"	TEXT NOT NULL,
 	"courseID"	TEXT NOT NULL,
@@ -6,6 +8,8 @@ CREATE TABLE "Appointments" (
 	PRIMARY KEY("studentID","courseID")
 );
 
+/* Ely - I would use INTEGER for coachID, that way you can 
+auto-increment.*/
 CREATE TABLE "Coach" (
 	"coachID"	TEXT NOT NULL,
 	"firstName"	TEXT NOT NULL,
@@ -40,3 +44,9 @@ CREATE TABLE "Student" (
 	"address"	TEXT NOT NULL,
 	PRIMARY KEY("studentID")
 );
+
+/* Ely - I like that you separated your database creates and inserts into different documents;
+in hindsight it looks much neater this way and I wish we had done that for our project.
+I also felt you successfully included all the relevant informattion from your business requirements!
+I feel the information included is very useful for either Students or Coaches.
+*/
