@@ -3,17 +3,23 @@
 
   <nav aria-label="Courses Pagination">
     <ul class="pagination">
+<!-- Ely: Adding an if statement would make it so that if the user is already on 
+the first page, they cannot go before the first page (page 0). -->
+      <% if (currentPage != 0) { %>
       <li class="page-item">
         <a class="page-link" href="<%= '/courses/?page=' + (currentPage - 1) %>">Previous</a>
       </li>
+      <% } %>
       <li class="page-item">
         <a class="page-link" href="<%= '/courses/?page=' + 1 %>"><%= 1 %></a>
       </li>
       <li>...</li>
-
-      <% for(let p = Math.max(currentPage-5, 2);
+ <!-- Ely: This fixes the pagination so you can only select from the actual amount of pages available. -->
+      <% for(let p = Math.max(currentPage - 5, 2); p <= 4; p+=1) { %>
+      <!-- <% for(let p = Math.max(currentPage-5, 2);
         p <= (currentPage+5);
-        p+=1) { %>
+        p+=1) { %> 
+      -->
         <li class="<%= 'page-item' + ( p === currentPage ? ' active' : '') %>">
           <a class="page-link" href="<%= '/courses/?page=' + p %>"><%= p %></a>
         </li>
@@ -25,18 +31,33 @@
         <li class="page-item"><a class="page-link" href="#">3</a></li>
      -->
       <li>...</li>
+<!-- Ely: Adding an if statement would make it so that if the user is already on 
+the last page, they cannot go over the lastPage. -->
+      <% if (currentPage != lastPage) { %>
+      <li>...</li>
       <li class="page-item">
         <a class="page-link" href="<%= '/courses/?page=' + lastPage %>"
           ><%= lastPage %></a
         >
       </li>
       <li class="page-item">
-        <a class="page-link" href="<%= '/courses/?page=' + (currentPage + 1) %>">Next</a>
+        <a class="page-link" href="<%= '/courses/?page=' + (currentPage + 1) %>"
+          >Next</a
+        >
       </li>
-    </ul>
+      <% } %>
+      <!-- <li class="page-item">
+        <a class="page-link" href="<%= '/courses/?page=' + lastPage %>"
+          ><%= lastPage %></a
+        >
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="<%= '/courses/?page=' + (currentPage + 1) %>">Next</a>
+      </li> -->
+    </ul> 
   </nav>
 <% } else { %>
-<!-- Ely - I would just put "1" page rather than no pagination. -->
+<!-- Ely: I would just put "1" page rather than no pagination. -->
   <div>1 / 1 </div>
   <!-- <div>No pagination <%= lastPage %> </div> -->
 <% } %>
